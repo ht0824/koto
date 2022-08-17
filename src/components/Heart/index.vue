@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-// const activeNames = ref(['1'])
 const Messages = ref(
   [
     {
@@ -20,7 +19,7 @@ const Messages = ref(
       msg: `我滴乖宝,圣诞节快乐~!
                 <br>今天是2021年12月25日,这是我陪你过的第一个圣诞节,很开心我们出现在彼此的生命里,成为彼此最重要的人,但希望我在你眼里,依然是最好的宝贝
                 <br>想跟你去很多地方,看时间各地的风景,吃好吃的美食,牵着你的手,走最远的路,想和你一起去探索这个有趣的世界,一起努力成长,变成更好的人。
-               <br> 我想以后天天有你的陪伴,我想牵你的手,一起去逛公园,我想搂着你入睡,难过时想抱着你,希望我们都在彼此未来的规划里
+                <br> 我想以后天天有你的陪伴,我想牵你的手,一起去逛公园,我想搂着你入睡,难过时想抱着你,希望我们都在彼此未来的规划里
                 <br>未来的路很长,希望所有的绊脚石,都是以后惊喜的铺垫,希望这份特别的礼物能让你感受到我满满的爱意与幸福感~
                 <br>王珊珊~! 我喜欢你~~~!!!`,
     },
@@ -116,7 +115,8 @@ const Messages = ref(
       title: '2022回忆篇(3)',
       time: '2022-07-18',
       msg: `今天去湖北省公安厅出差办公路过街道口,上周五也路过了，好像每周都要路过
-            <br>想见你一面，又有些害怕见你，怕你不想见到我，怕你讨厌我
+            <br>到哪儿都能仿佛能看大你的影子,明明只有不到三个月的时间,却还是忘不掉
+            <br>可能只是我一厢情愿,可能会尴尬,会不自在,会难受,但我还是想见你一面
             <br>以前总想着放假可以休息，可以放松出去玩一下，现在有点不太想放假了，想一直上班
             <br>时间并不会帮我们解决问题，它只是把原来我们怎么也想不通的问题，变得不那么重要了
             <br>所谓成长就是可以笑着说出当年令自己撕心裂肺的事
@@ -135,7 +135,7 @@ const showText = (index: any) => {
   }
   else {
     collBoxIndex.classList.add('isActive')
-    collBoxIndex.style.height = `${20 * 0.25 * 16 + textHeight}px`
+    collBoxIndex.style.height = `${18 * 0.25 * 16 + textHeight}px`
     iconIndex.style.transform = 'rotate(90deg)'
   }
 }
@@ -143,26 +143,13 @@ const showText = (index: any) => {
 
 <template>
   <div class="demo-collapse">
-    <!-- <el-collapse v-model="activeNames">
-      <el-collapse-item v-for="(item, index) in Messages" :key="index" :name="index">
-        <template #title>
-          {{ item.title }}
-          <p class="time">
-            {{ item.time }}
-          </p>
-        </template>
-        <div class="msg">
-          <p v-html="item.msg" />
-        </div>
-      </el-collapse-item>
-    </el-collapse> -->
     <div v-for="(item, index) in Messages" :key="index" class="collBox" :class="`collBox${index}`">
       <div class="title cursor-pointer" @click="showText(index)">
         <span>{{ item.title }}</span> <span flex items-center>{{ item.time }}
           <div class="i-carbon:chevron-right ml-4 iconRight" :class="`icon${index}`" />
         </span>
       </div>
-      <p :class="`text${index}`" v-html="item.msg" />
+      <div class="px-12 py-4 text-left lh-8" :class="`text${index}`" v-html="item.msg" />
     </div>
   </div>
 </template>
