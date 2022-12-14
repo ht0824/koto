@@ -4,11 +4,29 @@ const router = useRouter()
 const user = reactive({
   name: '',
 })
+const users: any = {
+  8010: {
+    name: 'TuT',
+    cName: '胡涂',
+  },
+  8009: {
+    name: 'LJS',
+    cName: '李居帅',
+  },
+  8011: {
+    name: 'WY',
+    cName: '王愉',
+  },
+}
+let port: any = window.location.port
 
 watch(() => user.name, (newval, oldval) => [
   user.name = newval,
 ])
 onBeforeMount(() => {
+  const arr: number[] = [8009, 8010, 8011]
+  if (arr.every(item => item !== port))
+    port = 8010
 })
 onMounted(() => {
   user.name = sessionStorage.getItem('user') || ''
@@ -28,7 +46,7 @@ const logout = () => {
 <template>
   <div display="flex" justify-between>
     <div class="cursor-pointer" @click="gohome">
-      <span>TuT</span>
+      <span>{{ users[port].name }}</span>
     </div>
     <div class="grid gap-4 grid-auto-flow-col">
       <router-link to="/hi/blog" title="Blog">

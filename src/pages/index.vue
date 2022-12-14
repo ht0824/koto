@@ -8,6 +8,5 @@ import Me from './hi/me.vue'
 
 <route lang="yaml">
 meta:
-  # layout: home
   layout: default
 </route>

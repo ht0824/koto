@@ -182,7 +182,7 @@ export default defineConfig({
   server: {
     cors: true, // 默认启用并允许任何源
     open: true, // 在服务器启动时自动在浏览器中打开应用程序
-    port: 3333,
+    port: 8010,
     proxy: {
       '/api': {
         target: 'http://119.91.123.88:19002',

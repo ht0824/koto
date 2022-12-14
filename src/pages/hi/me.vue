@@ -1,28 +1,51 @@
 <script setup lang="ts">
 import Plum from '~/components/Plum.vue'
+const users: any = {
+  8010: {
+    name: 'HuTu',
+    cName: '胡涂',
+    job: '前端',
+  },
+  8009: {
+    name: 'LiJuShuai',
+    cName: '李居帅',
+    job: '后端',
+  },
+  8011: {
+    name: 'WangYu',
+    cName: '王愉',
+    job: '前端',
+  },
+}
+let port: any = window.location.port
+
+onMounted(() => {
+  const arr: number[] = [8009, 8010, 8011]
+  if (arr.every(item => item !== port))
+    port = 8010
+})
 </script>
 
 <template>
   <Plum />
   <div class="max-w-153 text-left mt-23 mx-auto">
     <h2 text-3xl>
-      HuTu
+      {{ users[port].name }}
     </h2>
-    <p>
-      嘿 你好 我是胡涂涂, 一名前端开发工程师.
-    </p>
-    <p>兴趣使然让我成为了一名程序员,从前端开发工作至今,对这份爱好始终怀抱着热忱,将来也会持续下去</p>
-    <p>在工作之外,做做饭,吃吃吃,打游戏,看电影,羽毛球,烧烤,钓鱼,露营,登山.....等等</p>
-    <p>如果你碰巧有这些爱好,刚好又在武汉,有空面个基,交个朋友</p>
+    <p>嘿 你好 我是{{ users[port].cName }}， 一名{{ users[port].job }}开发工程师</p>
+    <p>兴趣使然让我成为了一名程序员，从事{{ users[port].job }}开发工作至今</p>
+    <p>对这份爱好始终怀抱着热忱，将来也会持续下去</p>
+    <p>在工作之余、吃美食、喝奶茶、打游戏、看电影、羽毛球、台球、烧烤、钓鱼、.....等等</p>
+    <p>如果你碰巧有这些爱好，又刚好在武汉，不妨可以见个面，交个朋友</p>
     <p>什么样的年纪都不妨碍做自己喜欢的事情</p>
-    <p>你所见皆是我,好与坏我都不反驳</p>
-    <p>生活会把该你的东西都给你,或早或晚</p>
+    <p>你所见皆是我，好与坏我都不反驳</p>
+    <p>生活会把该你的东西都给你，或早或晚</p>
     <div />
   </div>
 </template>
 
 <style lang="less" scoped>
-p{
+p {
   line-height: 2rem;
   margin: 1.5rem 0;
 }
